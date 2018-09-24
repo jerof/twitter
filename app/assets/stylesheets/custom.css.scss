@@ -58,3 +58,102 @@ input.form-control {
     width: 190px;
     height: 30px;
 }
+
+/* Split the screen in half */
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+/* Control the left side */
+.left {
+  left: 0;
+  background-color: #009DF6;
+}
+
+/* Control the right side */
+.right {
+  right: 0;
+  background-color: #FFF;
+}
+
+/* If you want the content centered horizontally and vertically */
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+/* Style the image inside the centered container, if needed */
+.centered img {
+  width: 150px;
+  border-radius: 50%;
+}
+
+.btn-signup {
+  background-color: #009df6;
+  border-radius: 20px;
+  font-size: 1em;
+  font-weight: bold;
+  color: #FFF;
+  font-weight: bold;
+  padding: 5px 100px;
+  display: block;
+  &:hover {
+    background-color: #0066C2;
+    color: #FFF;
+  }
+}
+
+.btn-login {
+  background-color: #fff;
+  font-size: 1em;
+  font-weight: bold;
+  border-radius: 20px;
+  color: #009df6;;
+  border-color: #009df6;
+  padding: 5px 110px;
+  display: block;
+  &:hover {
+    background-color: #E8F5FE;
+    color: #009df6;
+  }
+}
+
+.btn-custom {
+  background-color: #009df6;
+  border-radius: 20px;
+  color: #FFF;
+  font-weight: bold;
+  padding: 5px 20px;
+  display: block;
+}
+
+.button {
+  margin-top: 20px;
+}
+
+.left-text {
+  text-align: left;
+  font-size: 1.3em;
+  color: #FFF;
+  font-weight: bold;
+}
+
+.right-text h2 {
+  margin-bottom: 80px;
+  color: #13171A;
+}
+
+.right-text p {
+  color: #13171A;
+  font-size: 1.2em;
+  font-weight: bold;
+}
