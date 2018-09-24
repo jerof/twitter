@@ -10,6 +10,7 @@ class TweetsController < ApplicationController
   def create
     @tweet = Tweet.new(tweet_params)
     if @tweet.save
+      flash[:success] = "Hurrah! Your tweet was created!"
       redirect_to tweet_path(@tweet)
     else
       render 'new'
@@ -27,6 +28,7 @@ class TweetsController < ApplicationController
   def update
     @tweet = Tweet.find(params[:id])
     if @tweet.update(tweet_params)
+      flash[:success] = "Your tweet was updated!"
       redirect_to tweet_path(@tweet)
     else
       render 'edit'
@@ -36,6 +38,7 @@ class TweetsController < ApplicationController
   def destroy
     @tweet = Tweet.find(params[:id])
     @tweet.destroy
+    flash[:danger] = "Your tweet was deleted!"
     redirect_to tweets_path
   end
 
