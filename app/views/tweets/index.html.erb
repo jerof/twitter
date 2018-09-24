@@ -5,7 +5,11 @@
     <% @tweets.each do |tweet| %>
       <div class="well">
         <p><%= link_to simple_format(tweet.content), tweet_path(tweet) %></p>
-        <small>• <%= time_ago_in_words(tweet.created_at) %> ago</small>
+        <div class="tweet-meta">
+          <small>Created by: <%= tweet.user.username if tweet.user %>,
+                      <%= time_ago_in_words(tweet.created_at) %> ago,
+          last updated: <%= time_ago_in_words(tweet.updated_at) %> ago</small>
+        </div>
         <div class="tweet-actions">
           <p><%= link_to "Edit", edit_tweet_path(tweet), class:"btn btn-primary btn-xs" %> 
             <%= link_to "Delete", tweet_path(tweet), method: :delete,
