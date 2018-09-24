@@ -1,12 +1,12 @@
 <div class="row">
   <div class="col-xs-4 col-xs-offset-4">
-    <% if @tweet.errors.any? %>
+    <% if obj.errors.any? %>
     <div class="panel panel-danger">
       <div class="panel-heading">
         <div class="panel-title">
-          <h3><%= pluralize(@tweet.errors.count, "error") %> prevented the tweet from being saved:</h3>
+          <h3><%= pluralize(obj.errors.count, "error") %> prevented the tweet from being saved:</h3>
         </div>
-        <% @tweet.errors.full_messages.each do |msg| %>
+        <% obj.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
         <% end %>
         </div>
