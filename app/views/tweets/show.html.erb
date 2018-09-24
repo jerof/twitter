@@ -3,6 +3,24 @@
   <div class="col-xs-4 col-xs-offset-4">
     <div class="well well-lg">
       <%= link_to @tweet.content %>
+      <% if @tweet.user %>
+      <ul class="listing">
+        <div class="row center">
+          <div class="col-md-4 col-md-offset-4">
+            <li>Tweeted by:</li>
+            <li><%= link_to gravatar_for(@tweet.user), user_path(@tweet.user) %></li>
+            <li class="tweet-title">
+              <%= link_to @tweet.user.username, user_path(@tweet.user) %>
+            </li>
+            <li>
+              <small>
+                <%= pluralize(@tweet.user.tweets.count, "tweet") if @tweet.user.tweets %>
+              </small>
+            </li>
+          </div>
+        </div>
+      </ul>
+      <% end %>
       <div class="tweet-actions">
         <p><%= link_to "Edit", edit_tweet_path(@tweet), class:"btn btn-primary btn-xs" %> 
           <%= link_to "Delete", tweet_path(@tweet), method: :delete,
