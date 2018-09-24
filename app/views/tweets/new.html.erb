@@ -1,0 +1,15 @@
+<h1>Create a new tweet</h1>
+<div class="row">
+  <div class="col-sm-8">
+    <div class="well">
+      <%= form_for @tweet do |f| %>
+      <p>
+        <%= f.text_area :content, placeholder:"What's happening?" %>
+      </p>
+      <p>
+        <%= f.submit %>
+      </p>
+      <% end %>
+    </div>
+  </div>
+</div>
