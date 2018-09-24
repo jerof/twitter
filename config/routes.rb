@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   get 'help', to: 'static_pages#help'
   get '/privacy', to: 'static_pages#privacy'
   resources :tweets
+  resources :users, except: [:new]
+  get '/signup', to: 'users#new'
 end
