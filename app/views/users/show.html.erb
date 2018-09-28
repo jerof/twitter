@@ -1,8 +1,32 @@
-<h1 align="center">Welcome to <%= @user.username%>'s page</h1>
+<div class="row">
+  <div class="jumbotron UserShowPage">
+  </div>
+</div>
+<div class="row row-band">
+  <div class="container">
+    <ul class="nav navbar-nav navbar-left center", id: "band">
+      <li><a href=""><span>Tweets</span><br><span style="font-size: 1.7em"><%= @user.tweets.count %></span></a></li>
+      <li><a href=""><span>Following</span><br><span style="font-size: 1.7em">234</span></a></li>
+      <li><a href=""><span>Followers</span><br><span style="font-size: 1.7em">234</span></a></li>
+      <li><a href=""><span>Likes</span><br><span style="font-size: 1.7em">234</span></a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><%= link_to "Edit Profile", edit_user_path(@user) %></li>
+    </ul>
+  </div>
+</div>
 <div class="row">
   <div class="col-md-4 col-md-offset-4 center">
     <%= gravatar_for @user, size: 150 %>
   </div>
 </div>
-<h4 align="center"><%= @user.username %>'s tweets</h4>
+<div class="row">
+  <div class="container">
+    <ul>
+      <li>Tweets</li>
+      <li>Tweets & Replies</li>
+      <li>Media</li>
+    </ul>
+  </div>
 <%= render 'tweets/tweet', obj: @user.tweets %>
+</div>

@@ -20,6 +20,14 @@ body {
   color: #009df6;
 }
 
+#band {
+  text-align: center;
+}
+
+.row-band {
+  background-color: #fff;
+  margin-bottom: 1px solid #eaeaea;
+}
 .center {
   text-align: center;
 }
@@ -41,6 +49,12 @@ body {
     &.active {
       border-bottom: 2px solid #009df6;
     }
+}
+
+.well-tweets {
+  margin-bottom: 0px;
+  height: 200px;
+  width: 500px;
 }
 
 .btn-custom {
@@ -186,4 +200,11 @@ margin-top: 15px;
 .listing {
   list-style: none;
   padding-left: 0;
+}
+
+.jumbotron.UserShowPage {
+  background-color: #000;
+  margin-top: -20px;
+  margin-bottom: 0;
+  height: 400px;
 }
