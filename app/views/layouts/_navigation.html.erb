@@ -1,7 +1,10 @@
+<% if logged_in? %>
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
-      <a href="#" class="navbar-brand" id="logo"><i class="fab fa-twitter fa-lg"></i></a>
+      <%= link_to root_path, class:"navbar-brand", id:"logo" do %>
+       <%= fa_icon "twitter lg" %>
+      <% end %>
     </div>
     <ul class="nav navbar-nav navbar-left">
       <li><a href="/tweets"><i class="fas fa-home"></i> My Tweets</a></li>
@@ -20,7 +23,73 @@
           </div>
         </div>
       </form>
-      <button class="btn btn-custom navbar-btn", "/tweets/new">Tweet</button>
+      <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile <span class="caret"></span> </span></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "Edit Profile", edit_user_path(current_user) %></li>
+            <li><%= link_to "View Profile", user_path(current_user) %></li>
+            <li role="separator" class="divider"></li>
+            <li><%= link_to "Logout", logout_path, method: :delete %></li>
+          </ul>
+      </li>
+      <li><%= link_to "Tweet", new_tweet_path %></li>
     </ul>
   </div>
 </nav>
+<% else %>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <%= link_to root_path, class:"navbar-brand", id:"logo" do %>
+       <%= fa_icon "twitter lg" %>
+      <% end %>
+    </div>
+    <ul class="nav navbar-nav navbar-left">
+      <li><a href="#"><i class="fas fa-bolt"></i> Moments</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <form class="navbar-form navbar-left" action="#">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search Twitter">
+          <div class="input-group-btn">
+            <button class="btn btn-default" type="submit">
+              <i class="glyphicon glyphicon-search"></i>
+            </button>
+          </div>
+        </div>
+      </form>
+      <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Have an account? Log in <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <div>
+            <li>Have an account?</li>
+            <div class="row">
+              <%= form_for(:session, :html => { class: "form-horizontal", role: "form" }, url: login_path ) do |f| %>
+              <div class="col-sm-2">
+                    <div class="form-group">
+                      <div class="col-md-4">
+                        <%= f.email_field :email, class:"form-control", placeholder:"Enter email", autofocus: true %>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-md-4">
+                        <%= f.password_field :password, class:"form-control", placeholder:"Enter password", autocomplete: "off" %>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-sm-2">
+                      <%= f.submit "Log in", class:"btn btn-primary" %>
+                      </div>
+                    </div>
+                </div>
+                <% end %>
+              </div>
+            </div>
+            <li role="separator" class="divider"></li>
+
+          </ul>
+      </li>
+    </ul>
+  </div>
+</nav>
+<% end %>
